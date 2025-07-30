@@ -1,11 +1,17 @@
 import random
+import numpy as np
+
+# fix inconsistent printing format
+np.set_printoptions(formatter={'float': '{:.8f}'.format}, suppress=True)
 
 class Ball:
     def __init__(self, position, circle):
-        self.position = position 
+        vx = random.uniform(0, 0.025)
+        vy = random.uniform(0, 0.025)
+        dx = random.choice([-1, 1])
+        dy = random.choice([-1, 1])
+
+        self.position = np.array(position)
         self.circle = circle 
-        self.velocity_x = random.uniform(0, 0.05)
-        self.velocity_y = random.uniform(0, 0.05)
-        self.direction_x = random.choice([-1, 1])
-        self.direction_y = random.choice([-1, 1])
+        self.velocity = np.array([0.01 * dx, 0.01 * dy])
         self.colliding = False
