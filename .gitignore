@@ -1,3 +1,2 @@
-env/
-ml-demo/ml-env/
-ordinary-differential-equations/ode-env/
+ml_demo/ml_env/
+ordinary_differential_equations/.venv/

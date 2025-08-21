@@ -7,7 +7,7 @@ from learn_ode.lotka_volterra.data import freq_fox, freq_rabbit, t
 
 matplotlib.use("module://matplotlib-backend-wezterm")
 
-fig, ax = plt.subplots(figsize=(5, 5))
+fig, ax = plt.subplots(figsize=(10, 10))
 
 
 def prey(alpha, beta, x, y):
@@ -129,11 +129,23 @@ print("gamma:", gamma)
 print("delta:", delta)
 
 x_prey, x_pred, t_rk4 = rk4(alpha, beta, gamma, delta)
-plt.plot(t_rk4, x_prey, color="red")
-plt.plot(t_rk4, x_pred, color="blue")
-plt.plot(t, freq_rabbit, color="red")
-plt.plot(t, freq_fox, color="blue")
-plt.show()
+ax.plot(t_rk4, x_prey, label="Simulated rabbits", color="red")
+ax.plot(t, freq_rabbit, label="Data rabbits", color="blue")
+ax.set_xlabel("Time")
+ax.set_ylabel("Frequency")
+fig.legend()
 fig.savefig(
-    f"/home/prabhune/projects/cooper-union-2025/ordinary_differential_equations/learn_ode/lotka_volterra/random_search_graphs/{epochs}.png"
+    "/home/prabhune/projects/cooper-union-2025/ordinary_differential_equations/learn_ode/lotka_volterra/random_search_graphs/rabbits.png"
 )
+plt.show()
+
+fig, ax = plt.subplots(figsize=(10, 10))
+ax.plot(t_rk4, x_pred, label="Simulated foxes", color="red")
+ax.plot(t, freq_fox, label="Data foxes", color="blue")
+ax.set_xlabel("Time")
+ax.set_ylabel("Frequency")
+fig.legend()
+fig.savefig(
+    "/home/prabhune/projects/cooper-union-2025/ordinary_differential_equations/learn_ode/lotka_volterra/random_search_graphs/foxes.png"
+)
+plt.show()

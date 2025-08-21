@@ -47,7 +47,7 @@ def rk4_plot(alpha: float, beta: float, gamma: float, delta: float, iteration: i
     ax.set_ylabel("x(t)")
     fig.legend()
     fig.savefig(
-        f"/home/prabhune/projects/cooper-union-2025/ordinary-differential-equations/lotka_volterra/grad_descent_graphs/{iteration}.png"
+        f"/home/prabhune/projects/cooper-union-2025/ordinary_differential_equations/learn_ode/lotka_volterra/grad_descent_graphs/{iteration}.png"
     )
 
 

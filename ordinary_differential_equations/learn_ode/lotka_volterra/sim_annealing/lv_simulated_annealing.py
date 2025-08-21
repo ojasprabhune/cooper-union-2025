@@ -215,11 +215,21 @@ print("gamma:", gamma)
 print("delta:", delta)
 
 x_prey, x_pred, t_rk4 = rk4(alpha, beta, gamma, delta)
-plt.plot(t_rk4, x_prey, color="red")
-plt.plot(t_rk4, x_pred, color="blue")
-plt.plot(t, freq_rabbit, color="red")
-plt.plot(t, freq_fox, color="blue")
-plt.show()
+ax.plot(t_rk4, x_prey, label="Simulated rabbits", color="red")
+ax.plot(t, freq_rabbit, label="Data rabbits", color="blue")
+ax.set_xlabel("Time")
+ax.set_ylabel("Frequency")
+fig.legend()
 fig.savefig(
-    "/home/prabhune/projects/cooper-union-2025/ordinary_differential_equations/learn_ode/lotka_volterra/sim_annealing_graphs/1500.png"
+    "/home/prabhune/projects/cooper-union-2025/ordinary_differential_equations/learn_ode/lotka_volterra/sim_annealing_graphs/rabbits.png"
+)
+
+fig, ax = plt.subplots(figsize=(10, 10))
+ax.plot(t_rk4, x_pred, label="Simulated foxes", color="red")
+ax.plot(t, freq_fox, label="Data foxes", color="blue")
+ax.set_xlabel("Time")
+ax.set_ylabel("Frequency")
+fig.legend()
+fig.savefig(
+    "/home/prabhune/projects/cooper-union-2025/ordinary_differential_equations/learn_ode/lotka_volterra/sim_annealing_graphs/foxes.png"
 )
